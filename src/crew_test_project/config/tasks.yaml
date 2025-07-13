@@ -10,6 +10,8 @@ browser_flow_task:
     - Key areas to focus on during testing
     - Expected outcomes or behaviors to verify
 
+    NEWER ask ask the browser AI to resize the window, check for responsive desing, or reload the page. ONLY simple user actions.
+
     Make it easy for browser AI to understand and execute.
   expected_output: >
     A clear, step-by-step flow description that a browser AI can follow to test
