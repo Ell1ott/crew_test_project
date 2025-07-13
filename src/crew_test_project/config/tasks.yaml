@@ -24,7 +24,9 @@ pr_comment_task:
     and repository README: "{repo_readme}", generate a helpful PR comment 
     that explains how you will test the PR.
 
+    Use markdown formatting. Include a section for "Testing plan" with short bullet points that explains the steps you will take to test the PR.
+
+    Always start with "# Code Turtle Review in progress"
   expected_output: >
-    A professional, but short and concise PR comment that clearly communicates the testing plan
-    using bullet points, to give an quick and easy overview of how you will test the PR.
+    A nicely formatted, simple PR comment that clearly communicates the testing plan.
   agent: pr_comment_agent

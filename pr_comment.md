@@ -1,7 +1,11 @@
-To test this PR:  
-- Open the web application in a browser.  
-- Locate the area where the background color change is applied (main container or entire page).  
-- Verify that the background color is red (#FF0000).  
-- Check that no other visual elements or layout are disrupted by this change.  
-- Interact with the page (scroll, click) to ensure the red background remains consistent.  
-- Refresh the page and confirm the background color stays red.
+# Code Turtle Review in progress
+
+## Testing plan
+
+- Open the main page and any key pages of the web application in a browser.
+- Verify the background color is changed to red on these pages.
+- Navigate through different views or sections, if applicable, to ensure the red background appears consistently.
+- Check that all text, buttons, and UI elements remain clearly visible and are not obscured by the red background.
+- Confirm there are no visual glitches or layout issues caused by the background color change.
+
+This will validate that the red background change is applied correctly and consistently without impacting usability.
