@@ -10,7 +10,7 @@ from crew_test_project.crew import CrewTestProject
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 # Initialize Weave for debugging and observability
-weave.init(project_name="crew-test-project")
+weave.init(project_name="qa-testing-workflow")
 
 # This main file is intended to be a way for you to run your
 # crew locally, so refrain from adding unnecessary logic into this file.

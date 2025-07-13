@@ -4,7 +4,7 @@ from datetime import datetime
 import asyncio
 import warnings
 import requests
-# import weave
+import weave
 from typing import Optional
 
 from crew_test_project.crew import CrewTestProject
@@ -13,7 +13,7 @@ from crew_test_project.crew import CrewTestProject
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 # Initialize Weave for debugging and observability
-# weave.init(project_name="crew-test-project-api")
+weave.init(project_name="qa-testing-workflow")
 
 app = FastAPI(
     title="AI PR Analysis API",
