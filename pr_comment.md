@@ -1,9 +1,11 @@
-To test the new login interface introduced in this PR, I will:  
-- Open the app’s home page and navigate to the new login screen.  
-- Verify all expected UI elements are present (username/email input, password input, login button).  
-- Submit the form with valid credentials and confirm successful login by checking redirection to the grocery purchasing area or dashboard.  
-- Attempt login with invalid credentials to ensure appropriate error messages appear and access is denied.  
-- Test the login UI responsiveness and usability on multiple screen sizes.  
-- Check for any broken links or visual issues in the login component.  
+To test this PR introducing the new login interface, I will:
 
-This will confirm the login interface is fully functional, user-friendly, and visually consistent across devices.
+- Open the app homepage and confirm the new login interface is displayed clearly
+- Verify input fields for username/email, password, and the login button are present
+- Attempt login with valid credentials to ensure successful authentication and redirection to purchase/home page
+- Attempt login with invalid credentials and confirm appropriate error messages appear
+- Check the login interface’s visual layout and responsiveness on various screen sizes
+- After login, validate user can access grocery buying features without issues
+- Test logout functionality to confirm session ends properly and login screen reappears
+
+This will ensure the login UI is visually correct, functional, and integrates smoothly with app features.
