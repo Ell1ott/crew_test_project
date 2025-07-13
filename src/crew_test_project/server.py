@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 import asyncio
 import warnings
+import requests
 # import weave
 from typing import Optional
 
@@ -67,26 +68,25 @@ async def analyze_pr(request: PRRequest):
         }
         
         # Run the crew in a thread pool to avoid blocking the async event loop
-        crew_instance = CrewTestProject()
-        
         # Create a function to run the crew synchronously
         def run_crew_sync():
-            return crew_instance.crew().kickoff(inputs=inputs)
+            crew_instance = CrewTestProject()
+            result = crew_instance.crew().kickoff(inputs=inputs)
+            return crew_instance, result
         
         # Run the crew in a separate thread
         loop = asyncio.get_event_loop()
-        result = await loop.run_in_executor(None, run_crew_sync)
+        crew_instance, result = await loop.run_in_executor(None, run_crew_sync)
         
-        # Try to read the generated PR comment
-        pr_comment_content = None
+        # Access individual task outputs directly
+        browser_flow_content = crew_instance.browser_flow_task().output.raw if crew_instance.browser_flow_task().output else "Browser flow task output not available"
+        pr_comment_content = crew_instance.pr_comment_task().output.raw if crew_instance.pr_comment_task().output else "PR comment task output not available"
+        
+        # Send PR comment to localhost:3000/comment
         try:
-            with open('pr_comment.md', 'r', encoding='utf-8') as f:
-                pr_comment_content = f.read()
-        except FileNotFoundError:
-            pr_comment_content = "PR comment file not found, but crew execution completed."
-        
-        # The browser flow should be in the result from the first task
-        browser_flow_content = str(result)
+            requests.post("http://localhost:3000/comment", json={"comment": pr_comment_content})
+        except:
+            pass  # Keep it simple - ignore any errors
         
         return PRResponse(
             success=True,
@@ -117,16 +117,15 @@ async def analyze_pr_sync_endpoint(request: PRRequest):
         crew_instance = CrewTestProject()
         result = crew_instance.crew().kickoff(inputs=inputs)
         
-        # Try to read the generated PR comment
-        pr_comment_content = None
-        try:
-            with open('pr_comment.md', 'r', encoding='utf-8') as f:
-                pr_comment_content = f.read()
-        except FileNotFoundError:
-            pr_comment_content = "PR comment file not found, but crew execution completed."
+        # Access individual task outputs directly
+        browser_flow_content = crew_instance.browser_flow_task().output.raw if crew_instance.browser_flow_task().output else "Browser flow task output not available"
+        pr_comment_content = crew_instance.pr_comment_task().output.raw if crew_instance.pr_comment_task().output else "PR comment task output not available"
         
-        # The browser flow should be in the result from the first task
-        browser_flow_content = str(result)
+        # Send PR comment to localhost:3000/comment
+        try:
+            requests.post("http://localhost:3000/comment", json={"comment": pr_comment_content})
+        except:
+            pass  # Keep it simple - ignore any errors
         
         return PRResponse(
             success=True,
