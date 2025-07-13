@@ -8,8 +8,7 @@ dependencies = [
     "crewai[tools]>=0.141.0,<1.0.0",
     "fastapi>=0.104.0",
     "uvicorn[standard]>=0.24.0",
-    "requests>=2.31.0",
-    "weave[crewai]>=0.51.0"
+    "requests>=2.31.0"
 ]
 
 [project.scripts]

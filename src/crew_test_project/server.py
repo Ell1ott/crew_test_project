@@ -3,12 +3,16 @@ from pydantic import BaseModel
 from datetime import datetime
 import asyncio
 import warnings
+import weave
 from typing import Optional
 
 from crew_test_project.crew import CrewTestProject
 
 # Suppress warnings
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
+
+# Initialize Weave for debugging and observability
+# weave.init(project_name="crew-test-project-api")
 
 app = FastAPI(
     title="AI Crew API",
