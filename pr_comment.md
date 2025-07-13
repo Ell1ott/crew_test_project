@@ -1,0 +1,7 @@
+- Log in with valid credentials to ensure successful authentication and JWT token issuance.
+- Verify redirection to the new dashboard page after login.
+- Check that user profile info, recent activities, and account settings are displayed correctly on the dashboard.
+- Test responsiveness by resizing the browser window and using device emulation for mobile, tablet, and desktop views.
+- Attempt to access the dashboard without login and confirm redirection to the login page.
+- Refresh the dashboard page with and without a valid token to verify secure access control.
+- Interact with account settings: modify a setting, save, and confirm changes persist without errors.

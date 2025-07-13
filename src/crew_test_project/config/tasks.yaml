@@ -1,17 +1,28 @@
-research_task:
+browser_flow_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
-  expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    Based on the PR title: "{pr_title}", PR description: "{pr_description}", 
+    and repository README: "{repo_readme}", generate a concise flow description 
+    for a browser AI to test the application changes.
 
-reporting_task:
-  description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Include:
+    - General context about the repository and its purpose
+    - Step-by-step testing instructions related to the PR changes
+    - Key areas to focus on during testing
+    - Expected outcomes or behaviors to verify
+
+    Make it easy for browser AI to understand and execute.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A clear, step-by-step flow description that a browser AI can follow to test
+    the PR changes. Include repository context and specific testing steps.
+  agent: browser_flow_agent
+
+pr_comment_task:
+  description: >
+    Based on the PR title: "{pr_title}", PR description: "{pr_description}", 
+    and repository README: "{repo_readme}", generate a helpful PR comment 
+    that explains how you will test the PR.
+
+  expected_output: >
+    A professional, but short and concise PR comment that clearly communicates the testing plan
+    using bullet points, to give an quick and easy overview of how you will test the PR.
+  agent: pr_comment_agent
