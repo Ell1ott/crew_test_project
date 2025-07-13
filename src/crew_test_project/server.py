@@ -80,6 +80,8 @@ async def analyze_pr(request: PRRequest):
         
         # Access individual task outputs directly
         browser_flow_content = crew_instance.browser_flow_task().output.raw if crew_instance.browser_flow_task().output else "Browser flow task output not available"
+        # send to separate api endpoint
+        requests.post("http://localhost:3000/browser-flow", json={"browser_flow": browser_flow_content})
         pr_comment_content = crew_instance.pr_comment_task().output.raw if crew_instance.pr_comment_task().output else "PR comment task output not available"
         
         # Send PR comment to localhost:3000/comment

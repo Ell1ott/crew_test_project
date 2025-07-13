@@ -1,11 +1,11 @@
-To test the "Add user dashboard feature" PR, I will:
+To test this PR that adds a new login interface, I will:
 
-- Launch the app and log in with valid user credentials.
-- Confirm redirection to the new dashboard page post-login.
-- Verify the dashboard displays user profile info, recent activities, and account settings.
-- Test responsive layout by resizing the browser across mobile, tablet, and desktop sizes.
-- Attempt to access the dashboard URL without logging in to confirm authentication enforcement.
-- Log out from the dashboard and ensure session termination and redirection to login.
-- Interact with dashboard UI elements to ensure proper functionality and no broken components.
+- Open the app and ensure the login screen appears as the entry point.  
+- Verify presence of username/email and password input fields, along with a login button.  
+- Submit the form with empty inputs and check for appropriate validation errors.  
+- Enter valid credentials and confirm successful redirection to the main grocery purchase interface.  
+- Try invalid credentials to see clear and informative error messages.  
+- Test responsiveness of the login UI on different screen sizes.  
+- Check accessibility features like keyboard navigation and screen reader support.  
 
-This ensures authentication, correct data display, responsive design, and proper user flow are all validated.
+This will ensure the login interface is functional, user-friendly, and integrated correctly before accessing purchase features.
